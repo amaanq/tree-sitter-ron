@@ -244,6 +244,10 @@
         {
           "type": "escape_sequence",
           "named": true
+        },
+        {
+          "type": "raw_string",
+          "named": true
         }
       ]
     }
@@ -498,6 +502,10 @@
   },
   {
     "type": "line_comment",
+    "named": true
+  },
+  {
+    "type": "raw_string",
     "named": true
   },
   {

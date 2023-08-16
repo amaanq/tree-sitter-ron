@@ -128,13 +128,16 @@ module.exports = grammar({
 
     negative: $ => seq('-', choice($.integer, $.float)),
 
-    string: $ => seq(
-      alias(/b?"/, '"'),
-      repeat(choice(
-        $._escape_sequence,
-        $._string_content,
-      )),
-      token.immediate('"'),
+    string: $ => choice(
+      $.raw_string,
+      seq(
+        alias(/b?"/, '"'),
+        repeat(choice(
+          $._escape_sequence,
+          $._string_content,
+        )),
+        token.immediate('"'),
+      ),
     ),
 
     char: $ => seq(
